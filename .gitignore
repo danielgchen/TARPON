@@ -1,7 +1,8 @@
-.DS_store
-.ipynb_checkpoints
+*.DS_store
+*.ipynb_checkpoints
 *.X.csv
 *.y.csv
 *.h5ad
+*__pycache__
 outputs/model_v3/cdr3.conversion.n30.csv
 outputs/model_v3/cdr3.conversion.csv
