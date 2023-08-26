@@ -1,4 +1,7 @@
 .DS_store
 .ipynb_checkpoints
-outputs/*/*.X.csv
-outputs/*/*.y.csv
+*.X.csv
+*.y.csv
+*.h5ad
+outputs/model_v3/cdr3.conversion.n30.csv
+outputs/model_v3/cdr3.conversion.csv
