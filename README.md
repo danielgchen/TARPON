@@ -1,5 +1,5 @@
-# TAPIN
-## TCR-Antigen Pairs Identified through a Neural-Network
+# TARPON
+## TCR-Antigen Relations Predicted Over a Neural-Network
 TAPIN predicts TCR-Antigen binding via a 0-1 score, where 1 indicates strong confidence of binding, for variable length TCR beta chain CDR3 sequences (10-22 ideal, maximum of 30) and variable length antigen peptide sequences (8-11 ideal, maximum of 15). It utilizes a parsimonious neural network structure that produces separate learned TCR and Antigen embeddings then combines them via a learned rule set that is then softmaxed into a probability-like score. TAPIN out-performs 
 
 ## Data Selection
