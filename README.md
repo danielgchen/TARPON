@@ -1,6 +1,35 @@
+![Logo of the TARPON tool with TARPON written in big block letters colored in a blue to black gradient and a fish in the "O"](logo.png)
 # TARPON
 ## TCR-Antigen Relations Predicted Over a Neural-Network
 TARPON predicts TCR-Antigen binding via a 0-1 score, where 1 indicates strong confidence of binding, for variable length TCR beta chain CDR3 sequences (10-22 ideal, maximum of 30) and variable length antigen peptide sequences (8-11 ideal, maximum of 15). It utilizes a parsimonious neural network structure that produces separate learned TCR and Antigen embeddings then combines them via a learned rule set that is then softmaxed into a probability-like score.
+
+## Usage Instructions
+1. Download the packages listed in `requirements.txt`, these are pandas, numpy and tensorflow.
+2. Assemble your input CSV with the first column as CDR3 sequences from TCR beta chains, and second column as antigen sequences. 
+3. Run TARPON! For example, with an input CSV named "example.csv", provided in the TARPON directory, and an output CSV called "out.csv" we would run the following: `python fishing.py --bait example.csv --catch out.csv --verbose` and receive the following output:
+```
+preparing bait...
+        reading input TCR-Ag pairs...done!
+        reading n-processors...done!
+done!
+casting line...
+        encoding TCRs...done!
+        encoding antigens...done!
+done!
+reeling in...
+        loading model...done!
+        normalizing data...done!
+        predicting data...done!
+done!
+check your catch! TARPON was successful and saved your catch at "out.csv"
+         /\
+o      _/./
+ o  ,-'    `-:..-'/
+  o: o )      _  (
+   "`-....,--; `-.\
+       `
+```
+You can remove the `--verbose` tag to get more succint outputs, best of luck with the predictions and good luck fishing!!!
 
 ## Data Selection
 pMHC-TCRb pairs are derived from VDJdb, IEDB, and McPAS. High confidence curated and productive TCR pairs were utilized to peptides that are bound to HLA-A\*02:01, due to its standing as the most prevalent class-I HLA. Peptides are utilized that are 8-11 amino acids (AAs) in length because of literature evidence demonstrating that in vast majority only these peptides lengths can load onto classical class-I HLAs ([1](https://elifesciences.org/articles/54558)). Only CDR3s between 10-22 AAs in length are utilized, similarly due to literature evidence that this is the typical distribution length of CDR3 regions for TCRb chains ([2](https://nature.com/articles/srep29544)). No other data was filtered to ensure strong replicability and accessibility of the model.
