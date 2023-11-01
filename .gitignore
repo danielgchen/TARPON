@@ -7,3 +7,5 @@
 outputs/model_v3/cdr3.conversion.n30.csv
 outputs/model_v3/cdr3.conversion.csv
 external
+outputs/model_comparison/external*
+notebooks/model_v5.external_validation.ipynb

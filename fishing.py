@@ -263,8 +263,8 @@ if __name__ == '__main__':
     
     # predict final data
     print('reeling in...', end='')
-    X_cdr3s = cdr3_to_X.loc[cdr3s].reset_index().iloc[:, 1:]
-    X_ags = ag_to_X.loc[ags].reset_index().iloc[:, 1:]
+    X_cdr3s = cdr3_to_X.loc[bait.iloc[:, 0]].reset_index().iloc[:, 1:]
+    X_ags = ag_to_X.loc[bait.iloc[:, 1]].reset_index().iloc[:, 1:]
     pred = predict(X_cdr3s, X_ags, n_cpus, verbose)
     print('done!')
     
