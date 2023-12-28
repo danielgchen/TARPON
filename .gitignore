@@ -8,4 +8,8 @@ outputs/model_v3/cdr3.conversion.n30.csv
 outputs/model_v3/cdr3.conversion.csv
 external
 outputs/model_comparison/external*
-notebooks/model_v5.external_validation.ipynb
+notebooks/identify_validation_peptides.ipynb
+notebooks/nohup.py
+notebooks/model_v5.compile_external_datasets.ipynb
+notebooks/model_v5.tchard_train_test.ipynb
+notebooks/model_v5.tpp_train_test_iii*.ipynb
