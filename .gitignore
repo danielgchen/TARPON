@@ -1,3 +1,4 @@
+*.pkl
 *.DS_store
 *.ipynb_checkpoints
 *.X.csv
