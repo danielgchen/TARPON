@@ -12,4 +12,9 @@ notebooks/identify_validation_peptides.ipynb
 notebooks/nohup.py
 notebooks/model_v5.compile_external_datasets.ipynb
 notebooks/model_v5.tchard_train_test.ipynb
-notebooks/model_v5.tpp_train_test_iii*.ipynb
+notebooks/model_v5.tpp_train_test_iiia.ipynb
+notebooks/model_v5.tpp_train_test_iiib.ipynb
+notebooks/model_v5.tpp_train_test_iiic.ipynb
+notebooks/revision.r2.6.sensitivityv1_negattempt.ipynb
+notebooks/revision.r2.6.sensitivityv2_negattempt.ipynb
+notebooks/revision.r2.6.sensitivityv3_negattempt.ipynb

@@ -200,7 +200,7 @@ def encode_ags(ags, n_cpus, verbose):
 def predict(X_cdr3s, X_ags, n_cpus, verbose):
     # load in the model
     if verbose: print('\n\tloading model...', end='')
-    model = keras.models.load_model('outputs/model_v5/model_v5.keras')
+    model = keras.models.load_model('outputs/model_v5/model_v5.r1.keras')
     if verbose: print('done!')
 
     # combine the cdr3 and antigens
