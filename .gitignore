@@ -1,4 +1,7 @@
+notebooks/nohup*
+*nohup*
 *.pkl
+notebooks/*.pkl
 *.DS_store
 *.ipynb_checkpoints
 *.X.csv
