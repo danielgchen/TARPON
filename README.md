@@ -33,8 +33,7 @@ You can remove the `--verbose` tag to get more succint outputs, best of luck wit
 ## Data Selection
 pMHC-TCRb pairs are derived from VDJdb, IEDB, and McPAS. High confidence curated and productive TCR pairs were utilized to peptides that are bound to HLA-A\*02:01, due to its standing as the most prevalent class-I HLA. Peptides are utilized that are 8-11 amino acids (AAs) in length because of literature evidence demonstrating that in vast majority only these peptides lengths can load onto classical class-I HLAs ([1](https://elifesciences.org/articles/54558)). Only CDR3s between 10-22 AAs in length are utilized, similarly due to literature evidence that this is the typical distribution length of CDR3 regions for TCRb chains ([2](https://nature.com/articles/srep29544)). No other data was filtered to ensure strong replicability and accessibility of the model.
 
-## Model Descriptions
-### Model V5 (Final)
+## Model Description
 - **Source:** VDJdb, IEDB, McPAS
 - **Input:** TRB and AA sequence mapped to 30 and 15 spans, respectively, based on AA identity and physicochemical characteristics
 - **Transformation:** Z-score normalization and constant/zero-sum column removal based on training data
@@ -42,37 +41,11 @@ pMHC-TCRb pairs are derived from VDJdb, IEDB, and McPAS. High confidence curated
 - **Modeling Strategy:** 216,401 parameter NN \[\[\[I742-2H\],\[I375-100\]\]-1H-O\] (tensorflow)
 - **Validation Strategy:** validation with 100k+ rows of pairs completely uninvolved in training and (in-training testing)
 
-### Model V4
-- **Source:** VDJdb, IEDB, McPAS
-- **Input:** TRB and AA sequence mapped to 100 percentiles based on AA identity and physicochemical characteristics
-- **Transformation:** Z-score normalization and constant/zero-sum column removal based on training data
-- **Output:** reported to bind the given pMHC-TCR pair (1) or not bind (0)
-- **Modeling Strategy:** 2,973,001 parameter NN \[I-1K-5H-O\] (tensorflow)
-- **Validation Strategy:** train test split utilizing 25% testing ratio
-
-### Model V3
-- **Source:** VDJdb, IEDB, McPAS
-- **Input:** TRB and AA sequence mapped to 100 percentiles based on AA identity and physicochemical characteristics
-- **Transformation:** Z-score normalization and constant/zero-sum column removal based on training data
-- **Output:** reported to bind the given pMHC-TCR pair (1) or not bind (0)
-- **Modeling Strategy:** MLP with a hidden layer of 100 nodes (sklearn)
-- **Validation Strategy:** train test split utilizing 25% testing ratio
-
-### Model V2
-- **Source:** VDJdb, IEDB
-- **Input:** TRB sequence mapped to 100 percentiles based on AA identity and physicochemical characteristics
-- **Transformation:** Z-score normalization and constant/zero-sum column removal based on training data
-- **Output:** reported to bind CMV pp65 antigen NLVPMVATV (1) or not bind (0)
-- **Modeling Strategy:** logit (sklearn), random forest (sklearn)
-- **Validation Strategy:** 1000-fold cross-validation
-
-### Model V1
-- **Source:** VDJdb (Human, Confidence ≥ 2, HLA-A\*02:01)
-- **Input:** TRB sequence mapped to 100 percentiles based on AA identity and physicochemical characteristics
-- **Transformation:** Z-score normalization and constant/zero-sum column removal based on training data
-- **Output:** reported to bind CMV pp65 antigen NLVPMVATV (1) or not bind (0)
-- **Modeling Strategy:** logit (sklearn), random forest (sklearn)
-- **Validation Strategy:** 1000-fold cross-validation
+## Customization
+### How do I train the model upon my own training dataset of interest?
+Please see the notebook "model_v5.ipynb" in the "notebooks" folder for end-to-end process of training your own version of TARPON; a more succint version is in the "model_v5.cross_validation.ipynb" notebook under the same folder. In brief, replace the "hit.csv" (positive controls, binders) and "irr.csv" (negative controls, non-binders) with your own files of interest and run the model either in a single pass (the first notebook mentioned) or in a cross-validated fashion (the second mentioned notebook).
+### Where is the paired version of the model?
+Public datasets for antigen-resolved TCR sequences with both alpha and beta chains are substantially smaller than antigen-resolved TCR sequences with just CDR3 beta sequences; thus, they are not able to achieve the same level of learning as the current TARPON model. That said, we are happy to provide our version of dual-chain TARPON (TARPON-ab), as presented in the manuscript, in the notebook "revision.r2.4.dual_chain_system.ipynb" under the "notebooks" folder. As with the original TARPON model, all input and output data files are available on the GitHub or upon reasonable request to the authors. We look forward to future iterations of this model as full-featured TCR-Ag datasets become more ubiquitous and approach the scale of current TCRb-Ag datasets.
 
 ## References
 1. Bisrat J Debebe, Lies Boelen, James C Lee, IAVI Protocol C Investigators, Chloe L Thio, Jacquie Astemborski, Gregory Kirk, Salim I Khakoo, Sharyne M Donfield, James J Goedert, Becca Asquith (2020) Identifying the immune interactions underlying HLA class I disease associations eLife 9:e54558
